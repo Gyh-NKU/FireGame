@@ -1,4 +1,6 @@
-public class Item {
+package items;
+
+public abstract class Item {
     public String name;
     public Integer cnt;
     public Integer effect;

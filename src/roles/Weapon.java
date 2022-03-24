@@ -1,13 +1,15 @@
+package roles;
+
 public class Weapon {
 
-    String name;
-    Integer weight;
-    Integer attack;
-    Integer critical;
-    Integer skill;
-    WeaponType type;
+    public String name;
+    public Integer weight;
+    public Integer attack;
+    public Integer critical;
+    public Integer skill;
+    public WeaponType type;
 
-    Weapon(String name, Integer weight, Integer attack, Integer critical, Integer skill, WeaponType type){
+    public Weapon(String name, Integer weight, Integer attack, Integer critical, Integer skill, WeaponType type){
         this.name = name;
         this.weight = weight;
         this.attack = attack;
@@ -16,7 +18,7 @@ public class Weapon {
         this.type = type;
     }
 
-    Integer bonus(Weapon another){
+    public Integer bonus(Weapon another){
         if(type == WeaponType.SWORD && another.type == WeaponType.AXE){
             return 1;
         }

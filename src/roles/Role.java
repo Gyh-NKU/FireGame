@@ -1,9 +1,13 @@
+package roles;
+
+import items.Item;
+
 import java.util.Random;
 
-public class Role {
+abstract public class Role {
 
-    String name;
-    Integer level;
+    public String name;
+    public Integer level;
     final Integer maxLevel = 20;
     public Integer maxLife;
     public Integer curLife;
@@ -14,9 +18,9 @@ public class Role {
     public Integer magicDefence;
     public Integer luck;
     public Integer physique;
-    Item[] items;
-    Weapon[] weapons;
-    Weapon curWeapon;
+    public Item[] items;
+    public Weapon[] weapons;
+    public Weapon curWeapon;
 
     public Role(String name, Integer maxLife, Integer force, Integer skill,
                 Integer speed, Integer physicalDefence, Integer magicDefence,
@@ -36,6 +40,7 @@ public class Role {
         this.curLife = maxLife;
     }
 
+
     public boolean isdead() {
         return curLife <= 0;
     }
@@ -50,8 +55,9 @@ public class Role {
             return false;
         }
         items[pos].cnt--;
+        int prelife = curLife;
         curLife = Math.min(curLife + items[pos].effect, maxLife);
-        System.out.println("使用成功！");
+        System.out.println("使用成功！" + name + "恢复了" + (curLife - prelife) + "点生命");
         return true;
     }
 
@@ -64,8 +70,8 @@ public class Role {
         return true;
     }
 
-    public void attact(Role enemy) {
-        System.out.println(name+" 对 "+enemy.name+" 发动攻击！");
+    public void attack(Role enemy) {
+        System.out.println(name + " 对 " + enemy.name + " 发动攻击！");
         Random rd = new Random();
         int attForce = force + curWeapon.attack;
         int attSkill = skill * 2 + curWeapon.skill + luck / 2;
@@ -79,7 +85,7 @@ public class Role {
             attForce -= 1;
             attSkill -= 15;
         }
-
+        attSkill = Math.min(attSkill, 100);
         Integer defDefence = enemy.physicalDefence;
         Integer defMiss = enemy.speed * 2 + luck;
         Integer defMissCri = luck;
@@ -87,7 +93,7 @@ public class Role {
 
         int realDamage = attForce - defDefence;
 
-        System.out.println("暴击率:"+attCritical);
+        System.out.println("暴击率:" + attCritical + "命中率:" + attSkill);
 
         int missDig = rd.nextInt(101);
         int critDig = rd.nextInt(101);
@@ -107,6 +113,9 @@ public class Role {
         System.out.println("目前" + name + "血量为： " + curLife + "/" + maxLife);
         System.out.println("目前" + enemy.name + "血量为： " + enemy.curLife + "/" + enemy.maxLife);
         System.out.println("");
+        if(isdead()){
+            System.out.println(name + "已被击败");
+        }
         if (enemy.isdead()) {
             System.out.println(enemy.name + "已被击败！");
         }
