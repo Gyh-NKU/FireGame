@@ -22,12 +22,24 @@ public class Main {
         Role[] enemys = new Role[]{new Warrior("山贼"), new Mercenary("佣兵"),
                 new Lancer("枪兵")};
         while (true) {
-            int toAct = rd.nextInt(players.length);
-            while (players[toAct].isdead()) {
-                toAct = rd.nextInt(players.length);
+            System.out.println("请选择你要行动的角色：");
+            for(int i = 0;i < players.length;i++){
+                System.out.printf("%d. %-8s 	血量：%s 力量：%-6s 技术：%6s  防御：%6s\n",
+                        i + 1,
+                        players[i].name,
+                        players[i].curLife+"/"+players[i].maxLife,
+                        players[i].force,
+                        players[i].skill,
+                        players[i].physicalDefence);
             }
-            System.out.println("到" + players[toAct].name +
-                    "的回合了，请输入你的指令：1为攻击 2为使用物品");
+            int toAct = sc.nextInt();
+            toAct -= 1;
+            while (players[toAct].isdead()) {
+                System.out.println("你选择的角色已经死亡！");
+                toAct = sc.nextInt();
+            }
+            System.out.println(players[toAct].name +
+                    "开始行动了，请输入你的指令：1为攻击 2为使用物品");
             String cmd = sc.next();
             if (Objects.equals(cmd, "1")) {
                 System.out.println("请选择要使用的武器：");
@@ -76,6 +88,11 @@ public class Main {
                 break;
             }
             System.out.println("--------------------------");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             toAct = rd.nextInt(enemys.length);
             int toAttack = rd.nextInt(players.length);
             while (players[toAttack].isdead()) {
