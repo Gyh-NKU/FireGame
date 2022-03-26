@@ -1,7 +1,7 @@
 package weapons.sword;
 
-import roles.Weapon;
-import roles.WeaponType;
+import weapons.Weapon;
+import weapons.WeaponType;
 
 public class IconSword extends Weapon {
     public IconSword() {

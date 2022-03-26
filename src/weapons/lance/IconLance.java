@@ -1,7 +1,7 @@
 package weapons.lance;
 
-import roles.Weapon;
-import roles.WeaponType;
+import weapons.Weapon;
+import weapons.WeaponType;
 
 public class IconLance extends Weapon {
     public IconLance(){

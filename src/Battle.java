@@ -10,8 +10,10 @@ public class Battle {
     }
 
     void start() {
-        int defSpeed = Math.max(defencer.speed - Math.max(defencer.curWeapon.weight - defencer.physique, 0), 0);
-        int attSpeed = Math.max(attacker.speed - Math.max(attacker.curWeapon.weight - attacker.physique, 0), 0);
+        int defSpeed = Math.max(defencer.speed -
+                Math.max(defencer.curWeapon.weight - defencer.physique, 0), 0);
+        int attSpeed = Math.max(attacker.speed -
+                Math.max(attacker.curWeapon.weight - attacker.physique, 0), 0);
         int combo = 0;
         if (attSpeed - defSpeed > 4) {
             combo = 1;

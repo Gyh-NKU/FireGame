@@ -1,7 +1,7 @@
 package weapons.axe;
 
-import roles.Weapon;
-import roles.WeaponType;
+import weapons.Weapon;
+import weapons.WeaponType;
 
 public class SliverAxe extends Weapon {
     public SliverAxe() {

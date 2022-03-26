@@ -2,6 +2,7 @@ package roles;
 
 import items.Item;
 import items.LowMedicine;
+import weapons.Weapon;
 import weapons.axe.IconAxe;
 
 public class Warrior extends Role{

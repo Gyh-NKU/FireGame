@@ -3,9 +3,9 @@ package roles;
 import items.HighMedicine;
 import items.Item;
 import items.LowMedicine;
+import weapons.Weapon;
 import weapons.axe.IconAxe;
 import weapons.axe.SliverAxe;
-import weapons.sword.SliverSword;
 
 public class Hktr extends Role{
     public Hktr() {

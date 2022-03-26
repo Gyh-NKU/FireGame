@@ -1,4 +1,4 @@
-package roles;
+package weapons;
 
 public class Weapon {
 

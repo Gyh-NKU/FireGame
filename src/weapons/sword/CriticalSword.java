@@ -1,7 +1,7 @@
 package weapons.sword;
 
-import roles.Weapon;
-import roles.WeaponType;
+import weapons.Weapon;
+import weapons.WeaponType;
 
 public class CriticalSword extends Weapon {
     public CriticalSword() {

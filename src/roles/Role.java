@@ -1,11 +1,9 @@
 package roles;
 
 import items.Item;
+import weapons.Weapon;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.Random;
-import java.util.Scanner;
 
 abstract public class Role {
 
@@ -74,7 +72,7 @@ abstract public class Role {
     }
 
     public void attack(Role enemy) {
-        if(!isdead()){
+        if(!(isdead() || enemy.isdead())){
             System.out.println(name + " 对 " + enemy.name + " 发动攻击！");
             Random rd = new Random();
             int attForce = force + curWeapon.attack;

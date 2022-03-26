@@ -3,8 +3,8 @@ package roles;
 import items.HighMedicine;
 import items.Item;
 import items.LowMedicine;
+import weapons.Weapon;
 import weapons.sword.CriticalSword;
-import weapons.sword.IconSword;
 import weapons.sword.SliverSword;
 
 public class Lin extends Role{

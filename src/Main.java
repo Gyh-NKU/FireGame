@@ -37,7 +37,9 @@ public class Main {
             while (players[toAct].isdead()) {
                 System.out.println("你选择的角色已经死亡！");
                 toAct = sc.nextInt();
+                toAct -= 1;
             }
+
             System.out.println(players[toAct].name +
                     "开始行动了，请输入你的指令：1为攻击 2为使用物品");
             String cmd = sc.next();
@@ -89,10 +91,11 @@ public class Main {
             }
             System.out.println("--------------------------");
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             toAct = rd.nextInt(enemys.length);
             int toAttack = rd.nextInt(players.length);
             while (players[toAttack].isdead()) {
@@ -103,7 +106,7 @@ public class Main {
             }
             System.out.println("到" + enemys[toAct].name + "的回合了，"
                     + enemys[toAct].name + "选择攻击"
-                    + players[rd.nextInt(players.length)].name);
+                    + players[toAttack].name);
             Battle battle = new Battle(enemys[toAct], players[toAttack]);
             battle.start();
             System.out.println("---------------------------");

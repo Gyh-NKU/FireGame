@@ -1,6 +1,7 @@
 package roles;
 
 import items.*;
+import weapons.Weapon;
 import weapons.lance.IconLance;
 
 

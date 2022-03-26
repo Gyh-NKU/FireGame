@@ -2,7 +2,7 @@ package roles;
 
 import items.Item;
 import items.LowMedicine;
-import weapons.axe.IconAxe;
+import weapons.Weapon;
 import weapons.sword.IconSword;
 
 public class Mercenary extends Role{
